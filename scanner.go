@@ -49,7 +49,7 @@ var (
 )
 
 func main() {
-	subjRegex = regexp.MustCompile(`\.au$`)
+	subjRegex = regexp.MustCompile(`\.nl$`)
 
 	var err error
 	db, err = sqlx.Open("postgres", os.Getenv("SCANNER_DSN"))
@@ -180,7 +180,7 @@ func scan(url string, startIndex int64) error {
 		m := map[string]struct{}{}
 		for _, v := range names {
 			v = strings.ToLower(v)
-			if strings.HasSuffix(v, ".au") {
+			if strings.HasSuffix(v, ".nl") {
 				m[v] = struct{}{}
 			}
 		}
