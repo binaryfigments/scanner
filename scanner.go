@@ -38,7 +38,7 @@ import (
 )
 
 const (
-	logListUrl = "https://www.gstatic.com/ct/log_list/log_list.json"
+	logListURL = "https://www.gstatic.com/ct/log_list/log_list.json"
 )
 
 var (
@@ -241,7 +241,7 @@ func ensureSchema() error {
 }
 
 func updateLogs() error {
-	resp, err := http.Get(logListUrl)
+	resp, err := http.Get(logListURL)
 	if err != nil {
 		return err
 	}
