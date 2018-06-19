@@ -140,11 +140,12 @@ func scan(url string, startIndex int64) error {
 			CertificateSubjectRegex:    subjRegex,
 			PrecertificateSubjectRegex: subjRegex,
 		},
-		BatchSize:     1000,
-		NumWorkers:    2,
-		ParallelFetch: 1,
-		StartIndex:    startIndex,
-		Quiet:         true,
+		FetcherOptions: scanner.FetcherOptions{
+			BatchSize:     1000,
+			ParallelFetch: 1,
+			StartIndex:    startIndex,
+		},
+		NumWorkers: 2,
 	}
 
 	var lastSeen int64
